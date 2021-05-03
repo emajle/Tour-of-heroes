@@ -1,5 +1,6 @@
 <h1 [ngStyle]="titleStyle">Bienvenue sur {{ title }}</h1>
 
+<router-outlet></router-outlet>
 <!--
 <h1 [ngStyle]="titleStyle">Bienvenue dans La revue des {{ heroes.length }} héros, {{ username }}</h1>
 <!--le typescript envoie titleStyle  dans title-->
@@ -29,7 +30,3 @@
       <li *ngFor="let guy of badGuys">{{ guy }}</li>
     </ul>
   -->
-
-    <app-heroes-list></app-heroes-list>
-    <!--atention à l'endroit où l'on met l'app selon là où on veut qu'elle apparaisse-->
-  
