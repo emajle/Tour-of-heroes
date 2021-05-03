@@ -1,4 +1,4 @@
-<h1 [ngStyle]="titleStyle">Bienvenue dans {{ title }}</h1>
+<h1 [ngStyle]="titleStyle">Bienvenue sur {{ title }}</h1>
 
 <!--
 <h1 [ngStyle]="titleStyle">Bienvenue dans La revue des {{ heroes.length }} héros, {{ username }}</h1>
@@ -19,16 +19,17 @@
 <label for="manager">Username : 
   <input type="text" name="manager" id="manager" [(ngModel)]="manager">
 </label><br>
-  <button (click)="manage('add')">Ajouter un héros</button>
-  <button (click)="manage()">Supprimer un héros</button><br>
+  <button (click)="manage('hero', 'add')">Ajouter un héros</button>
+  <button (click)="manage('hero', 'remove')">Supprimer un héros</button><br>
   <button (click)="manage('bad', 'add')">Ajouter un méchant</button>
-  <button (click)="manage('bad')">Supprimer un méchant</button>
+  <button (click)="manage('bad', 'remove')">Supprimer un méchant</button>
 
     <h2>Bad guys :</h2>
     <ul>
       <li *ngFor="let guy of badGuys">{{ guy }}</li>
     </ul>
--->
+  -->
+
     <app-heroes-list></app-heroes-list>
     <!--atention à l'endroit où l'on met l'app selon là où on veut qu'elle apparaisse-->
   

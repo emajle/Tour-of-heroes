@@ -8,9 +8,9 @@ let heroCount = 2;
   styleUrls: ['./app.component.css']
 })
 export class AppComponent {
-  title = '';
+  title = 'La tour des Héros';
   titleStyle = {'font-family' : 'Arial', 'color' : 'red'};
-  //username = 'Anonymous';
+  username = 'Anonymous';
   heroes = [
     "Batman", 
     "Catwoman", 
@@ -39,12 +39,12 @@ export class AppComponent {
         const index: number = this.badGuys.indexOf(this.manager);
         if (index !== -1){
           this.badGuys.splice(index, 1);
-        }else{
+        }
+      }else{
         const index: number = this.heroes.indexOf(this.manager);
           if (index !== -1){
           this.heroes.splice(index, 1);
           }
-        }
      
       }
     }
