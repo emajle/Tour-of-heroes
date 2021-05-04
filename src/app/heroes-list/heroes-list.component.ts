@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { HeroService } from '../hero.service';
 import Hero from "../types/hero.type";
 
 @Component({
@@ -8,20 +9,32 @@ import Hero from "../types/hero.type";
 })
 export class HeroesListComponent implements OnInit {
 
-  heroes: Hero[] = [
-    { id : 1, name :'Batman' },
-    { id : 2, name : 'Superman' },
-    { id : 3, name : 'Spiderman' },
-    ];
+  selectedHero!: Hero;
+  heroes!: Hero[];
+  heroToAdd = '';
 
-  selectedHero!:  Hero;
+  constructor(private heroService: HeroService) { }
 
-  constructor() { }
+  ngOnInit(): void {
+    this.heroes = this.heroService.getHeroes()
+  }
 
-  selectHero(hero: Hero){
+  selectHero(hero: Hero) {
     this.selectedHero = hero;
   }
-  ngOnInit(): void {
+
+  addHero() {
+    // si heroToAdd = '    Coucou  '
+    // alors heroToAdd.trim() = 'Coucou'
+    // donc si heroToAdd = '          '
+    // alors heroToAdd.trim() = ''
+    if (this.heroToAdd.trim().length > 0) {
+      this.heroes.push(this.heroService.createHero(this.heroToAdd));
+      this.heroToAdd = '';
+    } else {
+      alert('Le nom du héros ne doit pas être vide');
+    }
   }
+  
 
 }
